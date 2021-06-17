@@ -25,7 +25,7 @@ module Spree
     def mail(headers = {}, &block)
       ensure_default_action_mailer_url_host(headers[:store_url])
       set_email_locale
-      super if Spree::Config[:send_core_emails]
+      super
     end
 
     private

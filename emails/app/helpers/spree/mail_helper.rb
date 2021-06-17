@@ -16,7 +16,7 @@ module Spree
     end
 
     def default_logo
-      Spree::Config.mailer_logo || Spree::Config.logo
+      Spree::Emails::Config[:logo]
     end
 
     def logo_path

@@ -49,13 +49,11 @@ module Spree
     preference :expedited_exchanges_days_window, :integer, default: 14 # the amount of days the customer has to return their item after the expedited exchange is shipped in order to avoid being charged
     preference :layout, :string, default: 'spree/layouts/spree_application'
     preference :logo, :string, default: 'logo/spree_50.png'
-    preference :mailer_logo, :string, default: 'logo/spree_50.png'
     preference :max_level_in_taxons_menu, :integer, default: 1 # maximum nesting level in taxons menu
     preference :products_per_page, :integer, default: 12
     preference :require_master_price, :boolean, default: true
     preference :restock_inventory, :boolean, default: true # Determines if a return item is restocked automatically once it has been received
     preference :return_eligibility_number_of_days, :integer, default: 365
-    preference :send_core_emails, :boolean, default: true # Default mail headers settings
     preference :shipping_instructions, :boolean, default: false # Request instructions/info for shipping
     preference :show_only_complete_orders_by_default, :boolean, default: true
     preference :show_variant_full_price, :boolean, default: false # Displays variant full price or difference with product price. Default false to be compatible with older behavior

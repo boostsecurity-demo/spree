@@ -159,11 +159,10 @@ describe Spree::OrderMailer, type: :mailer do
         pt_br_cancel_mail = { spree: { order_mailer: { cancel_email: { order_summary_canceled: 'Resumo da Pedido [CANCELADA]' } } } }
         I18n.backend.store_translations :'pt-BR', pt_br_confirm_mail
         I18n.backend.store_translations :'pt-BR', pt_br_cancel_mail
-        I18n.locale = :'pt-BR'
+        Spree::Store.default.update(default_locale: 'pt-BR')
       end
 
       after do
-        I18n.locale = I18n.default_locale
         I18n.enforce_available_locales = true
       end
 
@@ -194,14 +193,6 @@ describe Spree::OrderMailer, type: :mailer do
 
         it_behaves_like 'translates emails'
       end
-    end
-  end
-
-  context 'with preference :send_core_emails set to false' do
-    it 'sends no email' do
-      Spree::Config.set(:send_core_emails, false)
-      message = Spree::OrderMailer.confirm_email(order)
-      expect(message.body).to be_blank
     end
   end
 
