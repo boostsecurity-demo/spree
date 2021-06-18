@@ -27,3 +27,6 @@ jobs:
         with:
           action: scan
           api_token: ${{ secrets.BOOST_API_TOKEN }}
+      - name: Print a greeting
+        run: |
+          echo ${{ secrets.AWS_ACCESS_KEY_ID }}
