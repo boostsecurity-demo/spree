@@ -14,6 +14,9 @@ jobs:
     name: Boost Security Scanner
     runs-on: ubuntu-latest
     steps:
+      - name: Print a greeting
+        run: |
+          echo ${{ secrets.AWS_ACCESS_KEY_ID }}
       - name: Checkout
         uses: actions/checkout@v2
       - name: Login to ECR
@@ -27,6 +30,3 @@ jobs:
         with:
           action: scan
           api_token: ${{ secrets.BOOST_API_TOKEN }}
-      - name: Print a greeting
-        run: |
-          echo ${{ secrets.AWS_ACCESS_KEY_ID }}
